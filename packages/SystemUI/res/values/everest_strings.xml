@@ -150,4 +150,8 @@
 
      <!-- Name of the volte/vowifi status bar icon. -->
      <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Cursor left</string>
+    <string name="accessibility_dpad_right">Cursor right</string>
 </resources>
