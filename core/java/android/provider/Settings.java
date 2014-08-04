@@ -6987,6 +6987,13 @@ public final class Settings {
          * @hide
          */
         public static final String ENABLE_TASKBAR = "enable_taskbar";
+        
+        /**
+         * Whether to scramble a pin unlock layout
+         * @hide
+         */
+        public static final String LOCKSCREEN_PIN_SCRAMBLE_LAYOUT =
+                "lockscreen_scramble_pin_layout";
 
         /**
          * Statusbar right padding
