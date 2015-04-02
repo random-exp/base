@@ -108,4 +108,7 @@
     <!-- SystemUI restart dialog -->
     <java-symbol type="string" name="systemui_restart_title" />
     <java-symbol type="string" name="systemui_restart_message" />
+    
+    <!-- Device hardware keys -->
+   <java-symbol type="integer" name="config_deviceHardwareWakeKeys" />
 </resources>
