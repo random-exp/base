@@ -5849,6 +5849,12 @@ public final class Settings {
                 "high_touch_polling_rate_enable";
 
         /**
+         * Three Finger Gesture from Oppo
+         * @hide
+         */
+        public static final String THREE_FINGER_GESTURE = "three_finger_gesture";
+
+        /**
          * These are all public system settings
          *
          * @hide
