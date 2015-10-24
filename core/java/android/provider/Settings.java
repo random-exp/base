@@ -6267,6 +6267,12 @@ public final class Settings {
         public static final String QS_PANEL_STYLE = "qs_panel_style";
 
         /**
+         * Whether to show power menu on LockScreen
+         * @hide
+         */
+        public static final String LOCKSCREEN_ENABLE_POWER_MENU = "lockscreen_enable_power_menu";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
