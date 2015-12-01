@@ -6278,6 +6278,13 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_ENABLE_POWER_MENU = "lockscreen_enable_power_menu";
 
+         /**
+         * Volume rocker wake
+         * @hide
+         */
+        @Readable
+        public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
+
         /**
          * Whether the torch launch gesture to double tap or long press the power button when the
          * screen is off should be enabled. *
