@@ -134,6 +134,9 @@
     <!-- Light / Regular style fonts -->
     <java-symbol type="string" name="config_lightFontFamily" />
     <java-symbol type="string" name="config_regularFontFamily" />
+    
+    <!-- Custom logo color -->
+    <java-symbol type="color" name="logo_accent_color" />
 
     <!-- Location indicator -->
     <java-symbol type="drawable" name="stat_sys_location" />
