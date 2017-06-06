@@ -18,6 +18,7 @@ package android.hardware.camera2.impl;
 
 import static com.android.internal.util.function.pooled.PooledLambda.obtainRunnable;
 
+import android.app.ActivityThread;
 import android.annotation.NonNull;
 import android.content.Context;
 import android.graphics.ImageFormat;
