@@ -6610,6 +6610,13 @@ public final class Settings {
         public static final String QS_BRIGHTNESS_SLIDER_HAPTIC = "qs_brightness_slider_haptic";
 
         /**
+         * Change volume up and down handlign based on rotation
+         * @hide
+         */
+        @Readable
+        public static final String SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
+        
+        /**
          * These are all public system settings
          *
          * @hide
