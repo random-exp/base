@@ -7021,6 +7021,12 @@ public final class Settings {
         public static final String NOTIFICATION_MATERIAL_DISMISS = "notification_material_dismiss";
 
         /**
+         * Switch between filters for lockscreen album art
+         * @hide
+         */
+        public static final String LOCKSCREEN_ALBUMART_FILTER = "lockscreen_albumart_filter";
+
+        /**
          * @hide
          */
         public static final String WIFI_STANDARD_ICON = "wifi_standard_icon";
