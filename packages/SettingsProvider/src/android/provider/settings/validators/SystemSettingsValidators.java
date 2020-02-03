@@ -246,5 +246,6 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.STATUS_BAR_LOGO_COLOR, ANY_INTEGER_VALIDATOR);
         VALIDATORS.put(System.STATUS_BAR_LOGO_COLOR_PICKER, ANY_INTEGER_VALIDATOR);
         VALIDATORS.put(System.QS_PANEL_STYLE, NON_NEGATIVE_INTEGER_VALIDATOR);
+        VALIDATORS.put(System.RINGTONE_VIBRATION_PATTERN, new InclusiveIntegerRangeValidator(0, 4));
     }
 }
