@@ -246,6 +246,10 @@ public class AmbientDisplayConfiguration {
                 && alwaysOnAvailable() && !accessibilityInversionEnabled(user);
     }
 
+    private boolean boolSettingSystem(String name, int user, int def) {
+        return Settings.System.getIntForUser(mContext.getContentResolver(), name, def, user) != 0;
+    }
+
     /**
      * Returns if Always-on-Display functionality is available on the display.
      *
@@ -357,9 +361,9 @@ public class AmbientDisplayConfiguration {
 
     /** {@hide} */
     public boolean alwaysOnAmbientLightEnabled(int user) {
-        final boolean ambientLightsEnabled = boolSettingSystem(Settings.System.AMBIENT_NOTIFICATION_LIGHT_ENABLED, user, 0);
+        final boolean ambientLightsEnabled = boolSettingSystem(Settings.System.AOD_NOTIFICATION_PULSE, user, 0);
         if (ambientLightsEnabled) {
-            boolean ambientLightsActivated = boolSettingSystem(Settings.System.AMBIENT_NOTIFICATION_LIGHT_ACTIVATED, user, 0);
+            boolean ambientLightsActivated = boolSettingSystem(Settings.System.AOD_NOTIFICATION_PULSE_ACTIVATED, user, 0);
             return ambientLightsActivated && !accessibilityInversionEnabled(user) && alwaysOnAvailable();
         }
         return false;
