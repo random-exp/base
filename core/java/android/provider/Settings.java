@@ -6543,6 +6543,12 @@ public final class Settings {
                 "high_touch_polling_rate_enable";
 
         /**
+         * Whether StatusBar icons should use app icon
+         * @hide
+         */
+        public static final String STATUSBAR_COLORED_ICONS = "statusbar_colored_icons";
+
+        /**
          * Three Finger Gesture from Oppo
          * @hide
          */
