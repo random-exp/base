@@ -6907,6 +6907,12 @@ public final class Settings {
         public static final String EDGE_LIGHT_CUSTOM_COLOR = "edge_light_custom_color";
 
         /**
+         * Force full screen for devices with cutout
+         * @hide
+         */
+        public static final String FORCE_FULLSCREEN_CUTOUT_APPS = "force_full_screen_cutout_apps";
+
+        /**
          * These are all public system settings
          *
          * @hide
