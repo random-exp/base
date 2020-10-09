@@ -581,4 +581,8 @@ public class NotificationShadeWindowViewController {
     void setDragDownHelper(DragDownHelper dragDownHelper) {
         mDragDownHelper = dragDownHelper;
     }
+
+    public float getExpandedFraction() {
+        return mNotificationPanelViewController.getExpandedFraction();
+    }
 }
