@@ -187,6 +187,7 @@ import com.android.systemui.scrim.ScrimView;
 import com.android.systemui.settings.UserTracker;
 import com.android.systemui.settings.brightness.BrightnessSliderController;
 import com.android.systemui.shade.CameraLauncher;
+import com.android.systemui.shade.NotificationPanelViewController;
 import com.android.systemui.shade.NotificationShadeWindowView;
 import com.android.systemui.shade.NotificationShadeWindowViewController;
 import com.android.systemui.shade.QuickSettingsController;
@@ -1578,6 +1579,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         filter.addAction(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         filter.addAction(Intent.ACTION_SCREEN_CAMERA_GESTURE);
+        filter.addAction(NotificationPanelViewController.CANCEL_NOTIFICATION_PULSE_ACTION);
         mBroadcastDispatcher.registerReceiver(mBroadcastReceiver, filter, null, UserHandle.ALL);
         mGameSpaceManager.observe();
     }
@@ -2199,6 +2201,9 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
                 // state is correct.
                 mMainExecutor.execute(() -> mCommandQueueCallbacks.onCameraLaunchGestureDetected(
                         StatusBarManager.CAMERA_LAUNCH_SOURCE_SCREEN_GESTURE));
+            }
+            else if (NotificationPanelViewController.CANCEL_NOTIFICATION_PULSE_ACTION.equals(action)) {
+                mShadeSurface.stopNotificationPulse();
             }
             Trace.endSection();
         }
