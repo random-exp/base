@@ -186,6 +186,8 @@ import com.android.systemui.plugins.PluginManager;
 import com.android.systemui.plugins.qs.QS;
 import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.power.domain.interactor.PowerInteractor;
+import com.android.systemui.pulse.PulseControllerImpl;
+import com.android.systemui.pulse.VisualizerView;
 import com.android.systemui.qs.QSFragment;
 import com.android.systemui.qs.QSPanelController;
 import com.android.systemui.recents.ScreenPinningRequest;
@@ -540,6 +542,9 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
     private final ActivityStarter mActivityStarter;
 
     private GameSpaceManager mGameSpaceManager;
+
+    private final PulseControllerImpl mPulseController;
+    private VisualizerView mVisualizerView;
 
     private CentralSurfacesComponent mCentralSurfacesComponent;
 
@@ -937,6 +942,8 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         mTunerService = tunerService;
         mActivityStarter = activityStarter;
         mSysUiState = sysUiState;
+        mPulseController = new PulseControllerImpl(mContext, this,
+                mCommandQueue, mUiBgExecutor, mConfigurationController);
 
         mLockscreenShadeTransitionController = lockscreenShadeTransitionController;
         mStartingSurfaceOptional = startingSurfaceOptional;
@@ -1485,6 +1492,8 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
             });
         }
 
+        mVisualizerView = (VisualizerView) getNotificationShadeWindowView().findViewById(R.id.visualizerview);
+
         mReportRejectedTouch = getNotificationShadeWindowView()
                 .findViewById(R.id.report_rejected_touch);
         if (mReportRejectedTouch != null) {
@@ -1717,6 +1726,9 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
                 mCentralSurfacesComponent.getCentralSurfacesCommandQueueCallbacks();
         // Connect in to the status bar manager service
         mCommandQueue.addCallback(mCommandQueueCallbacks);
+
+        // this will initialize Pulse and begin listening for media events
+        mMediaManager.addCallback(mPulseController);
     }
 
     protected NotificationShadeWindowViewController getNotificationShadeWindowViewController() {
@@ -2744,6 +2756,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         // bar.
         mKeyguardStateController.notifyKeyguardGoingAway(true);
         mCommandQueue.appTransitionPending(mDisplayId, true /* forced */);
+        mPulseController.notifyKeyguardGoingAway();
         updateScrimController();
     }
 
@@ -2829,6 +2842,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
                 || (mDozing && mDozeParameters.shouldControlScreenOff() && keyguardVisibleOrWillBe);
 
         mShadeSurface.setDozing(mDozing, animate);
+        mPulseController.setDozing(mDozing);
         Trace.endSection();
     }
 
@@ -3882,6 +3896,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
                     updateScrimController();
                     mPresenterLazy.get()
                             .updateMediaMetaData(false, mState != StatusBarState.KEYGUARD);
+                    mPulseController.setKeyguardShowing(mState == StatusBarState.KEYGUARD);
                     Trace.endSection();
                 }
 
@@ -3926,6 +3941,10 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
                     maybeUpdateBarMode();
                 }
             };
+
+    public VisualizerView getLsVisualizer() {
+        return mVisualizerView;
+    }
 
     private final BatteryController.BatteryStateChangeCallback mBatteryStateChangeCallback =
             new BatteryController.BatteryStateChangeCallback() {
