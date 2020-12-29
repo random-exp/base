@@ -94,4 +94,11 @@
     <string name="quick_settings_compass_SW">SW</string>
     <string name="quick_settings_compass_W">W</string>
     <string name="quick_settings_compass_NW">NW</string>
+
+    <!-- Screen record delete action -->
+    <!-- Label for notification action to delete a screen recording file [CHAR LIMIT=35] -->
+    <string name="screenrecord_delete_label">Delete</string>
+    <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
+    <string name="screenrecord_delete_description">Screen recording deleted</string>
+
 </resources>
