@@ -28,6 +28,7 @@ import com.android.systemui.qs.tiles.DataSwitchTile
 import com.android.systemui.qs.tiles.FPSInfoTile
 import com.android.systemui.qs.tiles.HeadsUpTile
 import com.android.systemui.qs.tiles.PowerShareTile
+import com.android.systemui.qs.tiles.RefreshRateTile
 import com.android.systemui.qs.tiles.SmartPixelsTile
 import com.android.systemui.qs.tiles.SoundTile
 import com.android.systemui.qs.tiles.SyncTile
@@ -102,6 +103,12 @@ interface EverestOSModule {
     @IntoMap
     @StringKey(PowerShareTile.TILE_SPEC)
     fun bindPowerShareTile(powerShareTile: PowerShareTile): QSTileImpl<*>
+
+    /** Inject RefreshRateTile into tileMap in QSModule */
+    @Binds
+    @IntoMap
+    @StringKey(RefreshRateTile.TILE_SPEC)
+    fun bindRefreshRateTile(refreshRateTile: RefreshRateTile): QSTileImpl<*>
 
     /** Inject SmartPixelsTile into tileMap in QSModule */
     @Binds
