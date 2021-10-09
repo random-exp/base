@@ -20,6 +20,7 @@ package com.android.systemui.statusbar.phone;
 import android.annotation.Nullable;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Rect;
 import android.inputmethodservice.InputMethodService;
 import android.os.IBinder;
@@ -78,6 +79,8 @@ public class PhoneStatusBarView extends FrameLayout implements Callbacks {
     private int mStatusBarHeight;
     @Nullable
     private Gefingerpoken mTouchEventHandler;
+    @Nullable
+    private ViewGroup mStatusBarContents = null;
 
     /**
      * Draw this many pixels into the left/right side of the cutout to optimally use the space
@@ -145,12 +148,22 @@ public class PhoneStatusBarView extends FrameLayout implements Callbacks {
         StatusBarUserChipViewBinder.bind(container, viewModel);
     }
 
+    public void offsetStatusBar(Offset offset) {
+        if (mStatusBarContents == null) {
+            return;
+        }
+        mStatusBarContents.setTranslationX(offset.getX());
+        mStatusBarContents.setTranslationY(offset.getY());
+        invalidate();
+    }
+
     @Override
     public void onFinishInflate() {
         super.onFinishInflate();
         mBattery = findViewById(R.id.battery);
         mClockController = new ClockController(getContext(), this);
         mCutoutSpace = findViewById(R.id.cutout_space_view);
+        mStatusBarContents = (ViewGroup) findViewById(R.id.status_bar_contents);
 
         updateResources();
     }
@@ -309,7 +322,7 @@ public class PhoneStatusBarView extends FrameLayout implements Callbacks {
         int statusBarPaddingStart = getResources().getDimensionPixelSize(
                 R.dimen.status_bar_padding_start);
 
-        findViewById(R.id.status_bar_contents).setPaddingRelative(
+        mStatusBarContents.setPaddingRelative(
                 statusBarPaddingStart,
                 getResources().getDimensionPixelSize(R.dimen.status_bar_padding_top),
                 getResources().getDimensionPixelSize(R.dimen.status_bar_padding_end),
