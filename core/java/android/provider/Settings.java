@@ -6488,6 +6488,12 @@ public final class Settings {
         public static final String QS_TILE_ANIMATION_INTERPOLATOR = "qs_tile_animation_interpolator";
 
         /**
+         * Defines the screen-off animation to display
+         * @hide
+         */
+        public static final String SCREEN_OFF_ANIMATION = "screen_off_animation";
+
+        /**
          * These are all public system settings
          *
          * @hide
