@@ -6860,6 +6860,11 @@ public final class Settings {
         public static final String STATUSBAR_LEFT_PADDING = "statusbar_left_padding";
 
         /**
+         * @hide
+         */
+        public static final String ENABLE_TASKBAR = "enable_taskbar";
+
+        /**
          * Statusbar right padding
          * @hide
          */
