@@ -203,6 +203,7 @@ android_library {
         "LowLightDreamLib",
         "motion_tool_lib",
         "bcsmartspace-google",
+        "guava",
     ],
     manifest: "AndroidManifest.xml",
 
