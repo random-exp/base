@@ -7189,6 +7189,15 @@ public final class Settings {
          */
         public static final String LOCK_GESTURE_STATUS = "lock_gesture_status";
 
+	/**
+          * Enable disable CustomUI
+          *   0 = disabled
+          *   1 = enabled
+          * @author vjspranav
+          * @hide
+          */
+        public static final String CUSTOM_UI_TOGGLE = "custom_ui_toggle";
+
         /**
          * Which notification Vibration Pattern to use
          * 0: default provided value
@@ -7344,6 +7353,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_STYLE);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_COLOR);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_COLOR_PICKER);
+            PRIVATE_SETTINGS.add(CUSTOM_UI_TOGGLE);
         }
 
         /**
