@@ -54,6 +54,7 @@ import com.android.keyguard.KeyguardUpdateMonitorCallback;
 import com.android.settingslib.Utils;
 import com.android.systemui.CoreStartable;
 import com.android.systemui.DejankUtils;
+import com.android.systemui.Dependency;
 import com.android.systemui.Dumpable;
 import com.android.systemui.R;
 import com.android.systemui.animation.ShadeInterpolation;
@@ -73,6 +74,7 @@ import com.android.systemui.shade.transition.LargeScreenShadeInterpolator;
 import com.android.systemui.statusbar.notification.stack.ViewState;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.AlarmTimeout;
 import com.android.systemui.util.kotlin.JavaAdapter;
 import com.android.systemui.util.wakelock.DelayedWakeLock;
@@ -268,6 +270,11 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, Dump
     private boolean mTransparentScrimBackground;
     private boolean mIsLandscape;
 
+    private static final String QS_DUAL_TONE =
+        "system:" + Settings.System.QS_DUAL_TONE;
+
+    private boolean mUseDualToneColor;
+
     // Scrim blanking callbacks
     private Runnable mPendingFrameCallback;
     private Runnable mBlankingTransitionRunnable;
@@ -371,6 +378,13 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, Dump
         mWallpaperRepository = wallpaperRepository;
         mMainDispatcher = mainDispatcher;
         mBehindColors = new GradientColors();
+        TunerService tunerService = Dependency.get(TunerService.class);
+        tunerService.addTunable((key, newValue) -> {
+            if (key.equals(QS_DUAL_TONE)) {
+            	mUseDualToneColor = TunerService.parseIntegerSwitch(newValue, false);
+                ScrimController.this.onThemeChanged();
+            }
+        }, QS_DUAL_TONE);
     }
 
     @Override
@@ -1540,6 +1554,10 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, Dump
 
         int mainColor = mIsLandscape ? background : (mCustomScrimAlpha < 1f ? background : surfaceBackground);
         mBehindColors.setMainColor(mainColor);
+        mColors.setSupportsDarkText(
+                ColorUtils.calculateContrast(mColors.getMainColor(), Color.WHITE) > 4.5);
+
+        mBehindColors.setMainColor(mUseDualToneColor ? surfaceBackground : background);
         mBehindColors.setSecondaryColor(accent);
         boolean isBehindBgDark = !ContrastColorUtil.isColorDark(surfaceBackground);
         mBehindColors.setSupportsDarkText(isBehindBgDark);
