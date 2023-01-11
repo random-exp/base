@@ -12438,6 +12438,12 @@ public final class Settings {
          */
         public static final String QS_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
 
+	/**
+         * Quicksettings tile shape
+         * @hide
+         */
+        public static final String QS_TILE_SHAPE = "qs_tile_shape";
+
         /**
          * Whether to show the brightness slider in quick settings panel.
          * 0 = Top, 1 = Bottom
