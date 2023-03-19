@@ -223,6 +223,10 @@ public class AmbientDisplayConfiguration {
         return !TextUtils.isEmpty(longPressSensorType());
     }
 
+    private boolean boolSettingSystem(String name, int user, int def) {
+        return Settings.System.getIntForUser(mContext.getContentResolver(), name, def, user) != 0;
+    }
+
     /**
      * Returns if Always-on-Display functionality is enabled on the display for a specified user.
      *
