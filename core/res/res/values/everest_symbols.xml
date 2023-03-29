@@ -101,4 +101,11 @@
     <!-- Custom logo color -->
     <java-symbol type="color" name="logo_accent_color" />
 
+    <!-- Settings Restart -->
+    <java-symbol type="string" name="settings_restart_title" />
+    <java-symbol type="string" name="settings_restart_message" />
+
+    <!-- Soft restart dialog -->
+    <java-symbol type="string" name="system_restart_title" />
+    <java-symbol type="string" name="system_restart_message" />
 </resources>
