@@ -6751,6 +6751,11 @@ public final class Settings {
         /**
          * @hide
          */
+        public static final String QS_PANEL_STYLE = "qs_panel_style";
+
+        /**
+         * @hide
+         */
         public static final String QQS_LAYOUT_ROWS = "qqs_layout_rows";
 
         /**
