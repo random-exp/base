@@ -115,5 +115,6 @@ public class SystemSettings {
         Settings.System.QQS_LAYOUT,
         Settings.System.QS_TILE_LABEL_SIZE,
         Settings.System.QS_TILE_SECONDARY_LABEL_SIZE,
+        Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL,
     };
 }
