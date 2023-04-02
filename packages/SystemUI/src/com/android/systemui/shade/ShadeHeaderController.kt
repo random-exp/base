@@ -378,6 +378,11 @@ constructor(
         }
         clock.setOnClickListener { launchClockActivity() }
         clock.setQsHeader()
+        batteryIcon.setOnClickListener {
+            activityStarter.postStartActivityDismissingKeyguard(
+                Intent(Intent.ACTION_POWER_USAGE_SUMMARY), 0
+            )
+        }
 
         dumpManager.registerDumpable(this)
         configurationController.addCallback(configurationControllerListener)
