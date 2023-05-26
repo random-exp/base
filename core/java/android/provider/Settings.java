@@ -6759,6 +6759,12 @@ public final class Settings {
         public static final String QQS_LAYOUT_ROWS = "qqs_layout_rows";
 
         /**
+         * Enable and Disable Dual Tone Colors QsPanel
+         * @hide
+         */
+        public static final String QS_DUAL_TONE = "qs_dual_tone";
+
+        /**
          * Three Finger Gesture from Oppo
          * @hide
          */
