@@ -6361,6 +6361,13 @@ public final class Settings {
          */
         public static final String SMART_5G = "smart_5g";
 
+
+        /**
+          * QS header size
+          * @hide
+          */
+        public static final String QS_HEADER_SIZE = "qs_header_size";
+        
         /**
          * These are all public system settings
          *
@@ -6500,6 +6507,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(INCREASING_RING);
             PRIVATE_SETTINGS.add(INCREASING_RING_START_VOLUME);
             PRIVATE_SETTINGS.add(INCREASING_RING_RAMP_UP_TIME);
+            PRIVATE_SETTINGS.add(QS_HEADER_SIZE);
         }
 
         /**
