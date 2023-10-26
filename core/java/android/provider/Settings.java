@@ -6612,6 +6612,13 @@ public final class Settings {
         public static final String SMART_PIXELS_ON_POWER_SAVE = "smart_pixels_on_power_save";
 
         /**
+        /**
+         * Clock font color
+         * @hide
+         */
+        public static final String STATUS_BAR_CUSTOM_CLOCK_COLOR = "status_bar_custom_clock_color";
+
+        /**
          * Clock font color
          * @hide
          */

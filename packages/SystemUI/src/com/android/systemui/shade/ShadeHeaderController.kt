@@ -607,6 +607,9 @@ constructor(
             mShadeCarrierGroup.updateColors(textColorPrimary, colorStateList)
             batteryIcon.updateColors(textColorPrimary, textColorSecondary, textColorPrimary)
             clock.updateClockSize()
+            if (clock.mCustomClockColor == true) {
+                  clock.updateClockColor()
+             }     
         }
     }
 
