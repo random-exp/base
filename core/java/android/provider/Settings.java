@@ -5828,6 +5828,11 @@ public final class Settings {
          */
         public static final String ADAPTIVE_PLAYBACK_TIMEOUT = "adaptive_playback_timeout";
 
+	    /**
+         * @hide
+         */
+        public static final String VOLUME_MEDIA_OUTPUT_TOGGLE = "volume_media_output_toggle";
+
         /**
          *  Enable statusbar double tap gesture on to put device to sleep
          *  0 = 0ff, 1 = on
