@@ -5828,6 +5828,11 @@ public final class Settings {
          */
         public static final String ADAPTIVE_PLAYBACK_TIMEOUT = "adaptive_playback_timeout";
 
+	    /**
+         * @hide
+         */
+        public static final String VOLUME_MEDIA_OUTPUT_TOGGLE = "volume_media_output_toggle";
+
         /**
          * Whether auto brightness is applied one shot when screen is turned on
          * @hide
