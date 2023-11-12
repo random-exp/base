@@ -5827,6 +5827,11 @@ public final class Settings {
          */
         public static final String BATTERY_LIGHT_PULSE = "battery_light_pulse";
 
+	    /**
+         * @hide
+         */
+        public static final String VOLUME_MEDIA_OUTPUT_TOGGLE = "volume_media_output_toggle";
+
         /**
          * What color to use for the battery LED while charging - low
          * @hide
