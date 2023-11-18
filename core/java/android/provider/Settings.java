@@ -6790,6 +6790,11 @@ public final class Settings {
         public static final String STATUSBAR_TOP_PADDING = "statusbar_top_padding";
 
         /**
+         * @hide
+         */
+        public static final String ISLAND_NOTIFICATION = "island_notification";
+
+        /**
          * These are all public system settings
          *
          * @hide
