@@ -6685,6 +6685,11 @@ public final class Settings {
         public static final String QS_TRANSPARENCY = "qs_transparency";
 
         /**
+         * @hide
+         */
+        public static final String QS_FOOTER_TRANSPARENCY = "qs_footer_transparency";
+
+        /**
          * Three Finger Gesture from Oppo
          * @hide
          */
