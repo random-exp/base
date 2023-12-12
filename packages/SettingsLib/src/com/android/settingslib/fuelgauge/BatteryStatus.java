@@ -104,7 +104,6 @@ public class BatteryStatus {
         present = batteryChangedIntent.getBooleanExtra(EXTRA_PRESENT, true);
         temperature = batteryChangedIntent.getIntExtra(EXTRA_TEMPERATURE, -1);
 
-
         this.incompatibleCharger = incompatibleCharger;
 
         final int maxChargingMicroAmp =
