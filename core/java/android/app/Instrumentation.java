@@ -59,7 +59,6 @@ import android.view.Window;
 import android.view.WindowManagerGlobal;
 
 import com.android.internal.content.ReferrerIntent;
-import com.android.internal.util.everest.GamesPropsUtils;
 
 import java.io.File;
 import java.lang.annotation.Retention;
@@ -69,6 +68,8 @@ import java.util.List;
 import java.util.concurrent.TimeoutException;
 
 import com.android.internal.util.everest.MeizuPropsUtils;
+import com.android.internal.util.everest.PixelPropsUtils;
+import com.android.internal.util.everest.GamesPropsUtils;
 
 /**
  * Base class for implementing application instrumentation code.  When running
@@ -1285,10 +1286,11 @@ public class Instrumentation {
                 .instantiateApplication(cl, className);
         app.attach(context);
         MeizuPropsUtils.setProps(app);
+        PixelPropsUtils.setProps(app);
         GamesPropsUtils.setProps(app);
         return app;
     }
-    
+
     /**
      * Perform instantiation of the process's {@link Application} object.  The
      * default implementation provides the normal system behavior.
@@ -1304,6 +1306,7 @@ public class Instrumentation {
         Application app = (Application)clazz.newInstance();
         app.attach(context);
         MeizuPropsUtils.setProps(app);
+        PixelPropsUtils.setProps(app);
         GamesPropsUtils.setProps(app);
         return app;
     }
