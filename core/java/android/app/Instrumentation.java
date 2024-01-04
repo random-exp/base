@@ -1286,8 +1286,9 @@ public class Instrumentation {
                 .instantiateApplication(cl, className);
         app.attach(context);
         MeizuPropsUtils.setProps(app);
-        PixelPropsUtils.setProps(app);
-        GamesPropsUtils.setProps(app);
+        String packageName = context.getPackageName();
+        PixelPropsUtils.setProps(packageName);
+        GamesPropsUtils.setProps(packageName);
         return app;
     }
 
@@ -1306,8 +1307,9 @@ public class Instrumentation {
         Application app = (Application)clazz.newInstance();
         app.attach(context);
         MeizuPropsUtils.setProps(app);
-        PixelPropsUtils.setProps(app);
-        GamesPropsUtils.setProps(app);
+        String packageName = context.getPackageName();
+        PixelPropsUtils.setProps(packageName);
+        GamesPropsUtils.setProps(packageName);
         return app;
     }
 
