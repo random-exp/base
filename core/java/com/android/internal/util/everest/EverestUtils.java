@@ -119,7 +119,7 @@ public class EverestUtils {
         if (pkg != null) {
             try {
                 PackageInfo pi = context.getPackageManager().getPackageInfo(pkg, 0);
-                if (!pi.applicationInfo.enabled && !ignoreState) {
+                if ((!pi.applicationInfo.enabled || !pi.applicationInfo.isProduct()) && !ignoreState) {
                     return false;
                 }
             } catch (NameNotFoundException e) {
