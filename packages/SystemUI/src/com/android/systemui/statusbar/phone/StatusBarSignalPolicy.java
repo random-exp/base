@@ -163,6 +163,7 @@ public class StatusBarSignalPolicy implements SignalCallback,
             mHideMobile = hideMobile;
             mHideEthernet = hideEthernet;
             mHideVpn = hideVpn;
+            mHideIms = hideIms;
             // Re-register to get new callbacks.
             mNetworkController.removeCallback(this);
             mNetworkController.addCallback(this);
