@@ -7198,6 +7198,12 @@ public final class Settings {
           */
         public static final String CUSTOM_UI_TOGGLE = "custom_ui_toggle";
 
+	/**
+          * About phone header style on Settings
+          * @hide
+          */
+        public static final String ABOUT_PHONE_HEADER = "about_phone_header";
+
         /**
          * Which notification Vibration Pattern to use
          * 0: default provided value
@@ -7354,6 +7360,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_COLOR);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_COLOR_PICKER);
             PRIVATE_SETTINGS.add(CUSTOM_UI_TOGGLE);
+            PRIVATE_SETTINGS.add(ABOUT_PHONE_HEADER);
         }
 
         /**
